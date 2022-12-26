@@ -7,7 +7,7 @@ export default function NavBar () {
       &nbsp; | &nbsp;
       <Link to="/orders/new">New Order</Link>
       &nbsp; | &nbsp;
-      <Link to="/fruits">Fruits</Link>
+      <p>Log Out</p>
     </nav>
   )
 }

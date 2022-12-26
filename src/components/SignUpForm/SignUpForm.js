@@ -1,5 +1,7 @@
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { signUp } from '../../utilites/users-service'
+import LoginForm from '../LoginForm/LoginForm'
 
 export default class SignUpForm extends Component {
   state = {

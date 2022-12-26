@@ -1,5 +1,10 @@
+<h1>PROJECT 3</h1>
 
+```
 config
+  checkToken.js
+  database.js
+  ensureLoggedIn.js
 controller
   api
     fruits.js
@@ -21,4 +26,5 @@ src
       NewOrderPage.js
     OrderHistory
       OrderHistoryPage.js
+```
   
