@@ -5,6 +5,10 @@ import AuthPage from '../Auth/AuthPage';
 import NewOrderPage from '../NewOrder/NewOrderPage';
 import OrderHistoryPage from '../OrderHistory/OrderHistoryPage';
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+import Wishlist from '../Wishlist/Wishlist';
+import Home from '../Home/Home';
+import PowerSupply from '../PowerSupply/PowerSupply';
 
 function App() {
   const [state, setState] = useState(null)
@@ -28,18 +32,23 @@ function App() {
 
   return (
     <main className="App">
-      { user ?
       <>
-        <NavBar />
-        <Routes>
-          <Route path="/orders/new" element={<NewOrderPage />} />
-          <Route path="/orders" element={<OrderHistoryPage />} />
-          <Route path="/" element={<NewOrderPage />} />
-        </Routes>
-        </>
-          :
-          <AuthPage setUser={setUser}/>
-      }
+        { user ?
+        <>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/orders" element={<OrderHistoryPage />} />
+            <Route path="/wishlist" element={<Wishlist />}/>
+            <Route path="/power_supply" element={<PowerSupply />}/>
+          </Routes>
+          </>
+            :
+            <AuthPage setUser={setUser}/>
+        }
+        <Footer />
+      </>
   </main>
   );
 }
