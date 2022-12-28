@@ -10,6 +10,9 @@ export default function Home (){
       <Link to="/processors">Processors</Link>
       <Link to="/gpu">GPU</Link>
       <Link to="/motherboard">Motherboard</Link>
+      <Link to="/cases">Cases</Link>
+      <Link to="/cpu_fans">CPU Fan</Link>
+      <Link to="/case_fans">Case Fans</Link>
     </>
   )
 }

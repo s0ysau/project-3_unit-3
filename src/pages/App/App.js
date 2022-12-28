@@ -14,6 +14,9 @@ import Storage from '../Storage/Storage';
 import Processor from '../Processors/Processors';
 import Gpu from '../Gpu/Gpu';
 import Motherboard from '../Motherboard/Motherboard';
+import Case from '../Cases/Cases';
+import CpuFans from '../CpuFans/CpuFans';
+import CaseFans from '../CaseFans/CaseFans';
 
 function App() {
   const [state, setState] = useState(null)
@@ -52,6 +55,9 @@ function App() {
             <Route path="/processors" element={<Processor />}/>
             <Route path="/gpu" element={<Gpu />}/>
             <Route path="/motherboard" element={<Motherboard />} />
+            <Route path="/cases" element={<Case/>}/>
+            <Route path="/cpu_fans" element={<CpuFans />}/>
+            <Route path="/case_fans" element={<CaseFans />}/>
           </Routes>
           </>
             :
