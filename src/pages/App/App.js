@@ -9,6 +9,11 @@ import Footer from '../../components/Footer';
 import Wishlist from '../Wishlist/Wishlist';
 import Home from '../Home/Home';
 import PowerSupply from '../PowerSupply/PowerSupply';
+import Ram from '../Ram/Ram';
+import Storage from '../Storage/Storage';
+import Processor from '../Processors/Processors';
+import Gpu from '../Gpu/Gpu';
+import Motherboard from '../Motherboard/Motherboard';
 
 function App() {
   const [state, setState] = useState(null)
@@ -42,6 +47,11 @@ function App() {
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/wishlist" element={<Wishlist />}/>
             <Route path="/power_supply" element={<PowerSupply />}/>
+            <Route path="/ram" element={<Ram />} />
+            <Route path="/storage" element={<Storage />}/>
+            <Route path="/processors" element={<Processor />}/>
+            <Route path="/gpu" element={<Gpu />}/>
+            <Route path="/motherboard" element={<Motherboard />} />
           </Routes>
           </>
             :

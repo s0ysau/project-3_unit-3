@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 // import {headers} from '../../../config/apiHeaders'
 
-export default function PowerSupply () {
-  const [pwrSupplies, setPwrSupplies] = useState([])
+export default function Storage () {
+  const [storage, setStorage] = useState([])
 
-  const getPwrSupplies = async () => {
+  const getStorage = async () => {
     try {
-      const response = await fetch(`https://computer-components-api.p.rapidapi.com/power_supply?limit=10&offset=0`, {
+      const response = await fetch(`https://computer-components-api.p.rapidapi.com/storage?limit=10&offset=0`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -15,27 +15,27 @@ export default function PowerSupply () {
         }
       })
       const data = await response.json()
-      setPwrSupplies(data)
+      setStorage(data)
     } catch (error) {
       console.error(error)
     }
   }
 
   useEffect(() => {
-    getPwrSupplies()
+    getStorage()
   }, [])
 
   return(
     <>
-      <h1>Power Supply</h1>
+      <h1>Storage</h1>
       {
-        pwrSupplies ? (
+        storage ? (
           <ul>
             {
-              pwrSupplies.map((pwrSupply) => {
+              storage.map((item) => {
                 return(
                 <li>
-                  {pwrSupply.brand}
+                  {item.brand}
                 </li>)
               })
             }

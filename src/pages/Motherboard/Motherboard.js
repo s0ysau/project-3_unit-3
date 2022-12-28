@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 // import {headers} from '../../../config/apiHeaders'
 
-export default function PowerSupply () {
-  const [pwrSupplies, setPwrSupplies] = useState([])
+export default function Motherboard () {
+  const [motherboards, setMotherboards] = useState([])
 
-  const getPwrSupplies = async () => {
+  const getMotherboards = async () => {
     try {
-      const response = await fetch(`https://computer-components-api.p.rapidapi.com/power_supply?limit=10&offset=0`, {
+      const response = await fetch(`https://computer-components-api.p.rapidapi.com/motherboard?limit=10&offset=0`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -15,27 +15,27 @@ export default function PowerSupply () {
         }
       })
       const data = await response.json()
-      setPwrSupplies(data)
+      setMotherboards(data)
     } catch (error) {
       console.error(error)
     }
   }
 
   useEffect(() => {
-    getPwrSupplies()
+    getMotherboards()
   }, [])
 
   return(
     <>
-      <h1>Power Supply</h1>
+      <h1>Motherboards</h1>
       {
-        pwrSupplies ? (
+        motherboards ? (
           <ul>
             {
-              pwrSupplies.map((pwrSupply) => {
+              motherboards.map((motherboard) => {
                 return(
                 <li>
-                  {pwrSupply.brand}
+                  {motherboard.brand}
                 </li>)
               })
             }

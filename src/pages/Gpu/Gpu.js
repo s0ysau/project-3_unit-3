@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 // import {headers} from '../../../config/apiHeaders'
 
-export default function PowerSupply () {
-  const [pwrSupplies, setPwrSupplies] = useState([])
+export default function Gpu () {
+  const [gpus, setGpus] = useState([])
 
-  const getPwrSupplies = async () => {
+  const getGpus = async () => {
     try {
-      const response = await fetch(`https://computer-components-api.p.rapidapi.com/power_supply?limit=10&offset=0`, {
+      const response = await fetch(`https://computer-components-api.p.rapidapi.com/gpu?limit=10&offset=0`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -15,27 +15,27 @@ export default function PowerSupply () {
         }
       })
       const data = await response.json()
-      setPwrSupplies(data)
+      setGpus(data)
     } catch (error) {
       console.error(error)
     }
   }
 
   useEffect(() => {
-    getPwrSupplies()
+    getGpus()
   }, [])
 
   return(
     <>
-      <h1>Power Supply</h1>
+      <h1>GPU</h1>
       {
-        pwrSupplies ? (
+        gpus ? (
           <ul>
             {
-              pwrSupplies.map((pwrSupply) => {
+              gpus.map((gpu) => {
                 return(
                 <li>
-                  {pwrSupply.brand}
+                  {gpu.brand}
                 </li>)
               })
             }

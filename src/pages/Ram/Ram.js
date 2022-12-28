@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 // import {headers} from '../../../config/apiHeaders'
 
-export default function PowerSupply () {
-  const [pwrSupplies, setPwrSupplies] = useState([])
+export default function Ram () {
+  const [rams, setRams] = useState([])
 
-  const getPwrSupplies = async () => {
+  const getRams = async () => {
     try {
-      const response = await fetch(`https://computer-components-api.p.rapidapi.com/power_supply?limit=10&offset=0`, {
+      const response = await fetch(`https://computer-components-api.p.rapidapi.com/ram?limit=10&offset=0`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -15,27 +15,27 @@ export default function PowerSupply () {
         }
       })
       const data = await response.json()
-      setPwrSupplies(data)
+      setRams(data)
     } catch (error) {
       console.error(error)
     }
   }
 
   useEffect(() => {
-    getPwrSupplies()
+    getRams()
   }, [])
 
   return(
     <>
-      <h1>Power Supply</h1>
+      <h1>Ram</h1>
       {
-        pwrSupplies ? (
+        rams ? (
           <ul>
             {
-              pwrSupplies.map((pwrSupply) => {
+              rams.map((ram) => {
                 return(
                 <li>
-                  {pwrSupply.brand}
+                  {ram.brand}
                 </li>)
               })
             }
