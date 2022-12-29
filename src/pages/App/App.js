@@ -1,4 +1,3 @@
-import md5 from 'md5';
 import { useState, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom"
 import AuthPage from '../Auth/AuthPage';
@@ -21,6 +20,8 @@ import CaseFans from '../CaseFans/CaseFans';
 function App() {
   const [state, setState] = useState(null)
   const [user, setUser] = useState(null)
+  const [limit, setLimit] = useState(9);
+  const [offset, setOffset] = useState(0);
   
   const [errorMessage, setErrorMessage] = useState("")
 
@@ -37,6 +38,13 @@ function App() {
   useEffect(() => {
     fetchState()
   }, [])
+
+  const handleNext = async () => {
+    setOffset((prev) => (prev += limit));
+  };
+  const handlePrevious = async () => {
+    setOffset((prev) => (prev -= limit));
+  };
 
   return (
     <main className="App">

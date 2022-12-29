@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
 export default function Storage () {
@@ -28,6 +29,12 @@ export default function Storage () {
   return(
     <>
       <h1>Storage</h1>
+      <MultipleDisplay products={storage} />
+    </>
+  )
+}
+
+/*
       {
         storage ? (
           <ul>
@@ -35,13 +42,13 @@ export default function Storage () {
               storage.map((item) => {
                 return(
                 <li>
-                  {item.brand}
+                  <img src={item.img} alt={item.title} />
+                  <h1>{item.title}</h1>
+                  <p>${item.price}</p>
                 </li>)
               })
             }
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
-    </>
-  )
-}
+*/

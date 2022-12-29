@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
 export default function Gpu () {
@@ -28,6 +29,12 @@ export default function Gpu () {
   return(
     <>
       <h1>GPU</h1>
+      <MultipleDisplay products={gpus} />
+    </>
+  )
+}
+
+/*
       {
         gpus ? (
           <ul>
@@ -35,13 +42,13 @@ export default function Gpu () {
               gpus.map((gpu) => {
                 return(
                 <li>
-                  {gpu.brand}
+                  <img src={gpu.img} alt={gpu.title} />
+                  <h3>{gpu.title}</h3>
+                  <p>${gpu.price}</p>
                 </li>)
               })
             }
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
-    </>
-  )
-}
+*/

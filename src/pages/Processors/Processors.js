@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
 export default function Processor () {
@@ -28,6 +29,12 @@ export default function Processor () {
   return(
     <>
       <h1>Processors</h1>
+      <MultipleDisplay products={processors} />
+    </>
+  )
+}
+
+/*
       {
         processors ? (
           <ul>
@@ -35,13 +42,13 @@ export default function Processor () {
               processors.map((processor) => {
                 return(
                 <li>
-                  {processor.brand}
+                  <img src={processor.img} alt={processor.title} />
+                  <h1>{processor.title}</h1>
+                  <p>${processor.price}</p>
                 </li>)
               })
             }
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
-    </>
-  )
-}
+*/

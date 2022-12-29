@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
 export default function PowerSupply () {
@@ -28,6 +29,12 @@ export default function PowerSupply () {
   return(
     <>
       <h1>Power Supply</h1>
+      <MultipleDisplay products={pwrSupplies} />
+    </>
+  )
+}
+
+/*
       {
         pwrSupplies ? (
           <ul>
@@ -35,13 +42,13 @@ export default function PowerSupply () {
               pwrSupplies.map((pwrSupply) => {
                 return(
                 <li>
-                  {pwrSupply.brand}
+                  <img src={pwrSupply.img} alt={pwrSupply.title} />
+                  <h1>{pwrSupply.title}</h1>
+                  <p>${pwrSupply.price}</p>
                 </li>)
               })
             }
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
-    </>
-  )
-}
+*/

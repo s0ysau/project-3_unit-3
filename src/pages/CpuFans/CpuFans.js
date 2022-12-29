@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
 export default function CpuFans () {
@@ -28,6 +29,12 @@ export default function CpuFans () {
   return(
     <>
       <h1>CPU Fans</h1>
+      <MultipleDisplay products={cpuFans} />
+    </>
+  )
+}
+
+/*
       {
         cpuFans ? (
           <ul>
@@ -35,13 +42,13 @@ export default function CpuFans () {
               cpuFans.map((cpuFan) => {
                 return(
                 <li>
-                  {cpuFan.brand}
+                  <img src={cpuFan.img} alt={cpuFan.title} />
+                  <h1>{cpuFan.title}</h1>
+                  <p>${cpuFan.price}</p>
                 </li>)
               })
             }
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
-    </>
-  )
-}
+*/

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
 export default function Ram () {
@@ -28,6 +29,12 @@ export default function Ram () {
   return(
     <>
       <h1>Ram</h1>
+      <MultipleDisplay products={rams} />
+    </>
+  )
+}
+
+/*
       {
         rams ? (
           <ul>
@@ -35,13 +42,13 @@ export default function Ram () {
               rams.map((ram) => {
                 return(
                 <li>
-                  {ram.brand}
+                  <img src={ram.img} alt={ram.title} />
+                  <h1>{ram.title}</h1>
+                  <p>${ram.price}</p>
                 </li>)
               })
             }
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
-    </>
-  )
-}
+*/

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
 export default function Motherboard () {
@@ -28,20 +29,26 @@ export default function Motherboard () {
   return(
     <>
       <h1>Motherboards</h1>
-      {
-        motherboards ? (
-          <ul>
-            {
-              motherboards.map((motherboard) => {
-                return(
-                <li>
-                  {motherboard.brand}
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
+      <MultipleDisplay products={motherboards} />
     </>
   )
 }
+
+/*
+{
+  motherboards ? (
+    <ul>
+      {
+        motherboards.map((motherboard) => {
+          return(
+          <li>
+            <img src={motherboard.img} alt={motherboard.title} />
+            <h1>{motherboard.title}</h1>
+            <p>${motherboard.price}</p>
+          </li>)
+        })
+      }
+    </ul>
+  ) : <h1>Nothing to Show</h1>
+}
+*/
