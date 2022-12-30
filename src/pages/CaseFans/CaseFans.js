@@ -29,7 +29,23 @@ export default function CaseFans (props) {
   return(
     <>
       <h1>Case Fans</h1>
-      <MultipleDisplay products={caseFans} />
+      {
+        caseFans ? (
+          <ul>
+            {
+              caseFans.map((caseFan) => {
+                return(
+                <li key={caseFan.id}>
+                  <img src={caseFan.img} alt={caseFan.title} />
+                  <h3>{caseFan.brand} - {caseFan.model} ({caseFan.rpm})</h3>
+                  <p>${caseFan.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      } 
     </>
   )
 }

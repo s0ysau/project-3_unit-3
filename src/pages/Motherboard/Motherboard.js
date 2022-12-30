@@ -28,8 +28,24 @@ export default function Motherboard (props) {
 
   return(
     <>
-      <h1>Motherboards</h1>
-      <MultipleDisplay products={motherboards} />
+              <h1>Motherboards</h1>
+              {
+          motherboards ? (
+            <ul>
+              {
+                motherboards.map((motherboard) => {
+                  return(
+                  <li key={motherboard.id}>
+                    <img src={motherboard.img} alt={motherboard.title} />
+                    <h3>{motherboard.brand} - {motherboard.model} ({motherboard.formFactor})</h3>
+                    <p>${motherboard.price}</p>
+                    <button>Add to Cart</button>
+                  </li>)
+                })
+              }
+            </ul>
+          ) : <h1>Nothing to Show</h1>
+        }
     </>
   )
 }

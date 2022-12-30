@@ -29,7 +29,23 @@ export default function Case (props) {
   return(
     <>
       <h1>Cases</h1>
-      <MultipleDisplay products={cases} />
+      {
+        cases ? (
+          <ul>
+            {
+              cases.map((item) => {
+                return(
+                <li key={item.id}>
+                  <img src={item.img} alt={item.title} />
+                  <h3>{item.brand} - {item.model}, {item.cabinetType}</h3>
+                  <p>${item.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      }
     </>
   )
 }

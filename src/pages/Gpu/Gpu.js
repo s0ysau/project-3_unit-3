@@ -29,7 +29,23 @@ export default function Gpu (props) {
   return(
     <>
       <h1>GPU</h1>
-      <MultipleDisplay products={gpus} />
+      {
+        gpus ? (
+          <ul>
+            {
+              gpus.map((gpu) => {
+                return(
+                <li key={gpu.id}>
+                  <img src={gpu.img} alt={gpu.title} />
+                  <h3>{gpu.brand} - {gpu.model}</h3>
+                  <p>${gpu.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      }
     </>
   )
 }

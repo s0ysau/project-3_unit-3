@@ -29,7 +29,23 @@ export default function Storage (props) {
   return(
     <>
       <h1>Storage</h1>
-      <MultipleDisplay products={storage} />
+      {
+        storage ? (
+          <ul>
+            {
+              storage.map((item) => {
+                return(
+                <li key={item.id}>
+                  <img src={item.img} alt={item.title} />
+                  <h3>{item.brand} - {item.rpm} {item.type}</h3>
+                  <p>${item.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      }
     </>
   )
 }

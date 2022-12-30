@@ -29,7 +29,23 @@ export default function Processor (props) {
   return(
     <>
       <h1>Processors</h1>
-      <MultipleDisplay products={processors} />
+      {
+        processors ? (
+          <ul>
+            {
+              processors.map((processor) => {
+                return(
+                <li key={processor.id}>
+                  <img src={processor.img} alt={processor.title} />
+                  <h3>{processor.brand} - {processor.model} {processor.speed}</h3>
+                  <p>${processor.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      }
     </>
   )
 }

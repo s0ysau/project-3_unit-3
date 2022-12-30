@@ -29,7 +29,23 @@ export default function Ram (props) {
   return(
     <>
       <h1>Ram</h1>
-      <MultipleDisplay products={rams} />
+      {
+        rams ? (
+          <ul>
+            {
+              rams.map((ram) => {
+                return(
+                <li key={ram.id}>
+                  <img src={ram.img} alt={ram.title} />
+                  <h3>{ram.brand} - {ram.size} ({ram.quantity})</h3>
+                  <p>${ram.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      }
     </>
   )
 }

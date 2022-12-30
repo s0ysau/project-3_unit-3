@@ -29,7 +29,23 @@ export default function CpuFans (props) {
   return(
     <>
       <h1>CPU Fans</h1>
-      <MultipleDisplay products={cpuFans} />
+      {
+        cpuFans ? (
+          <ul>
+            {
+              cpuFans.map((cpuFan) => {
+                return(
+                <li key={cpuFan.id}>
+                  <img src={cpuFan.img} alt={cpuFan.title} />
+                  <h3>{cpuFan.brand} - {cpuFan.model} ({cpuFan.rpm})</h3>
+                  <p>${cpuFan.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      }
     </>
   )
 }

@@ -9,8 +9,9 @@ export default function MultipleDisplay (props) {
                 return(
                 <li key={product.id}>
                   <img src={product.img} alt={product.title} />
-                  <h3>{product.title}</h3>
+                  <h3>{product.brand} - {product.model}</h3>
                   <p>${product.price}</p>
+                  <button>Add to Cart</button>
                 </li>)
               })
             }

@@ -29,7 +29,23 @@ export default function PowerSupply (props) {
   return(
     <>
       <h1>Power Supply</h1>
-      <MultipleDisplay products={pwrSupplies} />
+      {
+        pwrSupplies ? (
+          <ul>
+            {
+              pwrSupplies.map((pwrSupply) => {
+                return(
+                <li key={pwrSupply.id}>
+                  <img src={pwrSupply.img} alt={pwrSupply.title} />
+                  <h3>{pwrSupply.brand} - {pwrSupply.model} ({pwrSupply.power}, {pwrSupply.efficiency})</h3>
+                  <p>${pwrSupply.price}</p>
+                  <button>Add to Cart</button>
+                </li>)
+              })
+            }
+          </ul>
+        ) : <h1>Nothing to Show</h1>
+      }
     </>
   )
 }
