@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom"
+import { headers } from "../../utilites/apiHeaders"
 import AuthPage from '../Auth/AuthPage';
 import NewOrderPage from '../NewOrder/NewOrderPage';
 import OrderHistoryPage from '../OrderHistory/OrderHistoryPage';
@@ -16,16 +17,20 @@ import Motherboard from '../Motherboard/Motherboard';
 import Case from '../Cases/Cases';
 import CpuFans from '../CpuFans/CpuFans';
 import CaseFans from '../CaseFans/CaseFans';
+import SideBar from '../../components/SideBar';
 
 function App() {
   const [state, setState] = useState(null)
   const [user, setUser] = useState(null)
   const [limit, setLimit] = useState(9);
   const [offset, setOffset] = useState(0);
-  
-  const [errorMessage, setErrorMessage] = useState("")
+  const url = `${headers.base_url}`
+  const host = `${headers.host}`
+  const apiKey = `${headers.apiKey}`
 
-  const fetchState = async (searchTerm) => {
+  
+
+  const fetchState = async () => {
     try {
       const response = await fetch(`api/test`)
       const data = await response.json()
@@ -39,12 +44,12 @@ function App() {
     fetchState()
   }, [])
 
-  const handleNext = async () => {
-    setOffset((prev) => (prev += limit));
-  };
-  const handlePrevious = async () => {
-    setOffset((prev) => (prev -= limit));
-  };
+  // const handleNext = async () => {
+  //   setOffset((prev) => (prev += limit));
+  // };
+  // const handlePrevious = async () => {
+  //   setOffset((prev) => (prev -= limit));
+  // };
 
   return (
     <main className="App">
@@ -52,20 +57,21 @@ function App() {
         { user ?
         <>
           <NavBar />
+          <SideBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/wishlist" element={<Wishlist />}/>
-            <Route path="/power_supply" element={<PowerSupply />}/>
-            <Route path="/ram" element={<Ram />} />
-            <Route path="/storage" element={<Storage />}/>
-            <Route path="/processors" element={<Processor />}/>
-            <Route path="/gpu" element={<Gpu />}/>
-            <Route path="/motherboard" element={<Motherboard />} />
-            <Route path="/cases" element={<Case/>}/>
-            <Route path="/cpu_fans" element={<CpuFans />}/>
-            <Route path="/case_fans" element={<CaseFans />}/>
+            <Route path="/power_supply" element={<PowerSupply url={url} host={host} apiKey={apiKey}/>}/>
+            <Route path="/ram" element={<Ram url={url} host={host} apiKey={apiKey}/>} />
+            <Route path="/storage" element={<Storage url={url} host={host} apiKey={apiKey}/>}/>
+            <Route path="/processors" element={<Processor url={url} host={host} apiKey={apiKey}/>}/>
+            <Route path="/gpu" element={<Gpu url={url} host={host} apiKey={apiKey}/>}/>
+            <Route path="/motherboard" element={<Motherboard url={url} host={host} apiKey={apiKey}/>} />
+            <Route path="/cases" element={<Case url={url} host={host} apiKey={apiKey}/>}/>
+            <Route path="/cpu_fans" element={<CpuFans url={url} host={host} apiKey={apiKey}/>}/>
+            <Route path="/case_fans" element={<CaseFans url={url} host={host} apiKey={apiKey}/>}/>
           </Routes>
           </>
             :

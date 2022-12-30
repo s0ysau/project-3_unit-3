@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react'
 import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
-export default function Processor () {
+export default function Processor (props) {
   const [processors, setProcessors] = useState([])
 
   const getProcessors = async () => {
     try {
-      const response = await fetch(`https://computer-components-api.p.rapidapi.com/processor?limit=10&offset=0`, {
+      const response = await fetch(`${props.url}/processor?limit=10&offset=0`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
-            "X-RapidAPI-Key": `4df6df70f4msh86e57e37753536ep17d511jsn5179f481eee1`,
-            "X-RapidAPI-Host" : "computer-components-api.p.rapidapi.com"
+            "X-RapidAPI-Key": `${props.apiKey}`,
+            "X-RapidAPI-Host" : `${props.host}`
         }
       })
       const data = await response.json()
