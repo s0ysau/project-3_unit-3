@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function SideBar (){
   return(
-    <>
+    <nav>
       <h1>Side Bar</h1>
       <Link to="/power_supply">Power Supply</Link><br/>
       <Link to="/ram">Ram</Link><br/>
@@ -13,6 +13,6 @@ export default function SideBar (){
       <Link to="/cases">Cases</Link><br/>
       <Link to="/cpu_fans">CPU Fans</Link><br/>
       <Link to="/case_fans">Case Fans</Link><br/>
-    </>
+    </nav>
   )
 }

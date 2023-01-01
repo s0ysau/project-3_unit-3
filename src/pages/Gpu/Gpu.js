@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import MultipleDisplay from '../../components/MultipleDisplay'
 // import {headers} from '../../../config/apiHeaders'
 
-export default function Gpu (props) {
+export default function Gpu(props) {
   const [gpus, setGpus] = useState([])
 
   const getGpus = async () => {
@@ -10,9 +10,9 @@ export default function Gpu (props) {
       const response = await fetch(`${props.url}/gpu?limit=10&offset=0`, {
         method: "GET",
         headers: {
-            'Content-Type': 'application/json',
-            "X-RapidAPI-Key": `${props.apiKey}`,
-            "X-RapidAPI-Host" : `${props.host}`
+          'Content-Type': 'application/json',
+          "X-RapidAPI-Key": `${props.apiKey}`,
+          "X-RapidAPI-Host": `${props.host}`
         }
       })
       const data = await response.json()
@@ -26,7 +26,7 @@ export default function Gpu (props) {
     getGpus()
   }, [])
 
-  return(
+  return (
     <>
       <h1>GPU</h1>
       {
@@ -34,13 +34,13 @@ export default function Gpu (props) {
           <ul>
             {
               gpus.map((gpu) => {
-                return(
-                <li key={gpu.id}>
-                  <img src={gpu.img} alt={gpu.title} />
-                  <h3>{gpu.brand} - {gpu.model}</h3>
-                  <p>${gpu.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                return (
+                  <li key={gpu.id}>
+                    <img src={gpu.img} alt={gpu.title} />
+                    <h3>{gpu.brand} - {gpu.model}</h3>
+                    <p>${gpu.price}</p>
+                    <button>Add to Cart</button>
+                  </li>)
               })
             }
           </ul>
