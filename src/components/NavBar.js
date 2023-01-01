@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom"
+import Logout from "../components/Logout/LogOut"
 
-export default function NavBar () {
+export default function NavBar ({user, setUser}) {
   return (
     <nav>
       <Link to="/">Home</Link>
@@ -9,9 +10,9 @@ export default function NavBar () {
       &nbsp; | &nbsp;
       <Link to="/orders">Order History</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
+      <Link to="/cart">Cart</Link>
       &nbsp; | &nbsp;
-      <p>Log Out</p>
+      <Logout user={user} setUser={setUser}/>
     </nav>
   )
 }

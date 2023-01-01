@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
+import SingleStorage from './SingleStorage';
 
 
 export default function Storage (props) {
@@ -8,6 +9,7 @@ export default function Storage (props) {
   const [offset, setOffset] = useState(0)
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  // const [cart, setCart] = useState(null)
 
   const getStorage = async () => {
     try {
@@ -42,6 +44,10 @@ export default function Storage (props) {
     }
   };
   
+  // const handleAddToCart = async ({item.id}) => {
+  //   const cart = await ordersAPI.getCart()
+  //   setCart(cart)
+  // }
 
   return(
     <>
@@ -53,7 +59,7 @@ export default function Storage (props) {
               storage.map((item) => {
                 return(
                 <li key={item.id}>
-                  <Link to={`/storage/${item.id}`} storage={item}>
+                  <Link to={`/storage/${item.id}`} >
                     <img src={item.img} alt={item.title} />
                     <h3>{item.brand} - {item.rpm} {item.type}</h3>
                   </Link>

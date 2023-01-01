@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Routes, Route } from "react-router-dom"
 import { headers } from "../../utilites/apiHeaders";
 import AuthPage from '../Auth/AuthPage';
-import NewOrderPage from '../NewOrder/NewOrderPage';
 import OrderHistoryPage from '../OrderHistory/OrderHistoryPage';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
@@ -19,6 +18,7 @@ import CpuFans from '../CpuFans/CpuFans';
 import CaseFans from '../CaseFans/CaseFans';
 import SideBar from '../../components/SideBar';
 import SingleStorage from '../Storage/SingleStorage';
+import Cart from '../Cart/Cart';
 
 export default function App() {
   const [state, setState] = useState(null)
@@ -83,11 +83,11 @@ export default function App() {
       <>
         { user ?
           <>
-            <NavBar />
+            <NavBar user={user} setUser={setUser}/>
             <SideBar />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/orders/new" element={<NewOrderPage />} />
+              <Route path="/cart" element={<Cart/>} />
               <Route path="/orders" element={<OrderHistoryPage />} />
               <Route path="/wishlist" element={<Wishlist />}/>
               <Route path="/power_supply" element={<PowerSupply url={url} host={host} apiKey={apiKey}/>}/>

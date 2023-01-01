@@ -1,6 +1,6 @@
 
 export default function SingleStorage({storage}) {
-  
+  console.log(storage)
   return (
     <>
       <h1>Single Storage</h1>
