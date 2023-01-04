@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import MultipleDisplay from '../../components/MultipleDisplay'
-// import {headers} from '../../../config/apiHeaders'
 
 export default function Motherboard(props) {
   const [motherboards, setMotherboards] = useState([])
@@ -49,22 +47,3 @@ export default function Motherboard(props) {
     </>
   )
 }
-
-/*
-{
-  motherboards ? (
-    <ul>
-      {
-        motherboards.map((motherboard) => {
-          return(
-          <li>
-            <img src={motherboard.img} alt={motherboard.title} />
-            <h1>{motherboard.title}</h1>
-            <p>${motherboard.price}</p>
-          </li>)
-        })
-      }
-    </ul>
-  ) : <h1>Nothing to Show</h1>
-}
-*/

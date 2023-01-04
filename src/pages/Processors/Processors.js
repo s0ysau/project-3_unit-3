@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import MultipleDisplay from '../../components/MultipleDisplay'
-// import {headers} from '../../../config/apiHeaders'
 
 export default function Processor (props) {
   const [processors, setProcessors] = useState([])
@@ -49,22 +47,3 @@ export default function Processor (props) {
     </>
   )
 }
-
-/*
-      {
-        processors ? (
-          <ul>
-            {
-              processors.map((processor) => {
-                return(
-                <li>
-                  <img src={processor.img} alt={processor.title} />
-                  <h1>{processor.title}</h1>
-                  <p>${processor.price}</p>
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
-*/

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import MultipleDisplay from '../../components/MultipleDisplay'
-// import {headers} from '../../../config/apiHeaders'
+import { Routes, Route, Link } from "react-router-dom"
+import SingleRam from './SingleRam'
 
 export default function Ram (props) {
   const [rams, setRams] = useState([])
@@ -36,8 +36,10 @@ export default function Ram (props) {
               rams.map((ram) => {
                 return(
                 <li key={ram.id}>
-                  <img src={ram.img} alt={ram.title} />
-                  <h3>{ram.brand} - {ram.size} ({ram.quantity})</h3>
+                    <Link to={`/ram/${ram.id}`} ram={ram}>
+                      <img src={ram.img} alt={ram.title} />
+                      <h3>{ram.brand} - {ram.size} ({ram.quantity})</h3>
+                    </Link>
                   <p>${ram.price}</p>
                   <button>Add to Cart</button>
                 </li>)
@@ -49,22 +51,3 @@ export default function Ram (props) {
     </>
   )
 }
-
-/*
-      {
-        rams ? (
-          <ul>
-            {
-              rams.map((ram) => {
-                return(
-                <li>
-                  <img src={ram.img} alt={ram.title} />
-                  <h1>{ram.title}</h1>
-                  <p>${ram.price}</p>
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
-*/

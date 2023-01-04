@@ -24,7 +24,7 @@ app.use('/api', routes) <=== Finish code once you got it
 */
 app.use('/api/users', require('./routes/api/users'))
 // app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'))
-
+app.use('api/wishlist', require('./routes/api/wishlist'))
 
 
 app.get('/api/test', (req, res) => {

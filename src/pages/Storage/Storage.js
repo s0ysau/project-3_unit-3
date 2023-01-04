@@ -76,23 +76,3 @@ export default function Storage (props) {
     </>
   )
 }
-
-/*
-      {
-        storage ? (
-          <ul>
-            {
-              storage.map((item) => {
-                return(
-                <li>
-                  <img src={item.img} alt={item.title} />
-                  <h1>{item.title}</h1>
-                  <p>${item.price}</p>
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
-      
-*/

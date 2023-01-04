@@ -13,6 +13,7 @@ export default function SideBar (){
       <Link to="/cases">Cases</Link><br/>
       <Link to="/cpu_fans">CPU Fans</Link><br/>
       <Link to="/case_fans">Case Fans</Link><br/>
+      <Link to="/mouse">Mouse</Link>
     </nav>
   )
 }

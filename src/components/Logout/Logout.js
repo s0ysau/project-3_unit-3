@@ -7,7 +7,7 @@ export default function Logout({user, setUser}) {
   }
   return(
     <>
-      <a href="/logout" onClick={handleLogOut}>Log Out</a>
+      <a href="/" onClick={handleLogOut}>Log Out</a>
     </>
   )
 }

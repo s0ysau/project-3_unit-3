@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import MultipleDisplay from '../../components/MultipleDisplay'
-// import {headers} from '../../../config/apiHeaders'
+import PrevNextBtn from '../../components/PrevNextBtn'
 
 export default function CaseFans (props) {
   const [caseFans, setCaseFans] = useState([])
 
-  const getCaseFans = async () => {
+
+  const getCaseFans = async (limit, offset) => {
     try {
-      const response = await fetch(`${props.url}/case_fan?limit=10&offset=0`, {
+      const response = await fetch(`${props.url}/case_fan?limit=${limit}&offset=${offset}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -46,25 +46,7 @@ export default function CaseFans (props) {
           </ul>
         ) : <h1>Nothing to Show</h1>
       } 
+      <PrevNextBtn getProduct={getCaseFans}/>
     </>
   )
 }
-
-/*
-      {
-        caseFans ? (
-          <ul>
-            {
-              caseFans.map((caseFan) => {
-                return(
-                <li>
-                  <img src={caseFan.img} alt={caseFan.title} />
-                  <h1>{caseFan.title}</h1>
-                  <p>${caseFan.price}</p>
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
-*/

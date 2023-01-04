@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import MultipleDisplay from '../../components/MultipleDisplay'
-// import {headers} from '../../../config/apiHeaders'
 
 export default function PowerSupply (props) {
   const [pwrSupplies, setPwrSupplies] = useState([])
@@ -49,22 +47,3 @@ export default function PowerSupply (props) {
     </>
   )
 }
-
-/*
-      {
-        pwrSupplies ? (
-          <ul>
-            {
-              pwrSupplies.map((pwrSupply) => {
-                return(
-                <li>
-                  <img src={pwrSupply.img} alt={pwrSupply.title} />
-                  <h1>{pwrSupply.title}</h1>
-                  <p>${pwrSupply.price}</p>
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
-*/

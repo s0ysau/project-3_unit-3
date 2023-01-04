@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import MultipleDisplay from '../../components/MultipleDisplay'
-// import {headers} from '../../../config/apiHeaders'
 
 export default function Case (props) {
   const [cases, setCases] = useState([])
@@ -49,22 +47,3 @@ export default function Case (props) {
     </>
   )
 }
-
-/*
-      {
-        cases ? (
-          <ul>
-            {
-              cases.map((item) => {
-                return(
-                <li>
-                  <img src={item.img} alt={item.title} />
-                  <h1>{item.title}</h1>
-                  <p>${item.price}</p>
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
-*/

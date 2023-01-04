@@ -1,9 +1,9 @@
 import {Link} from "react-router-dom"
-import Logout from "../components/Logout/LogOut"
+import Logout from "../LogOut/LogOut"
 
 export default function NavBar ({user, setUser}) {
   return (
-    <nav>
+    <nav className="nav-bar">
       <Link to="/">Home</Link>
       &nbsp; | &nbsp;
       <Link to="/wishlist">Wishlist</Link>

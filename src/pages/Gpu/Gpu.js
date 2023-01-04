@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import MultipleDisplay from '../../components/MultipleDisplay'
-// import {headers} from '../../../config/apiHeaders'
 
 export default function Gpu(props) {
   const [gpus, setGpus] = useState([])
@@ -49,22 +47,3 @@ export default function Gpu(props) {
     </>
   )
 }
-
-/*
-      {
-        gpus ? (
-          <ul>
-            {
-              gpus.map((gpu) => {
-                return(
-                <li>
-                  <img src={gpu.img} alt={gpu.title} />
-                  <h3>{gpu.title}</h3>
-                  <p>${gpu.price}</p>
-                </li>)
-              })
-            }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
-      }
-*/
