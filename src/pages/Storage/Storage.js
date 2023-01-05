@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import SingleStorage from './SingleStorage';
+import ShopBtn from '../../components/ShopBtn/ShopBtn';
 
 
 export default function Storage (props) {
@@ -64,8 +65,10 @@ export default function Storage (props) {
                     <h3>{item.brand} - {item.rpm} {item.type}</h3>
                   </Link>
                   <p>${item.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                  <ShopBtn props={item}/>
+                  <a href={item.link}>Buy on Amazon.com</a>
+                </li>
+                )
               })
             }
           </ul>

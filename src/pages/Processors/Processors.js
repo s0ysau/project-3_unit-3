@@ -2,10 +2,14 @@ import { useState, useEffect } from 'react'
 
 export default function Processor (props) {
   const [processors, setProcessors] = useState([])
+  const [limit, setLimit] = useState(10)
+  const [offset, setOffset] = useState(0)
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getProcessors = async () => {
     try {
-      const response = await fetch(`${props.url}/processor?limit=10&offset=0`, {
+      const response = await fetch(`${props.url}/processor?limit=${limit}&offset=${offset}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -21,8 +25,21 @@ export default function Processor (props) {
   }
 
   useEffect(() => {
-    getProcessors()
-  }, [])
+    setLoading(true)
+    getProcessors({limit, offset})
+  }, [limit, offset])
+
+  const handleNext = async () => {
+    setOffset((prev) => (prev += limit));
+  };
+  const handlePrevious = async () => {
+    if (offset === 0){
+      return
+    } else {
+    setOffset((prev) => (prev -= limit));
+    }
+  };
+
 
   return(
     <>
@@ -44,6 +61,8 @@ export default function Processor (props) {
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
+      <button onClick={handlePrevious}>Previous</button>
+      <button onClick={handleNext}>Next</button>
     </>
   )
 }

@@ -7,13 +7,13 @@ export default function PrevNextBtn (props) {
 
   useEffect(() => {
     setLoading(true)
-    props.getProduct(props.limit, props.offset)
+    props.getProduct({limit, offset})
   }, [limit, offset])
 
-  const handleNext = async () => {
+  const handleNext = () => {
     setOffset((prev) => (prev += limit));
   };
-  const handlePrevious = async () => {
+  const handlePrevious = () => {
     if (offset === 0){
       return
     } else {
@@ -24,7 +24,7 @@ export default function PrevNextBtn (props) {
   return (
     <form onClick={(evt) => {
       evt.preventDefault();
-      props.getProduct(limit, offset)
+      props.getProduct(offset)
     }}>
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>

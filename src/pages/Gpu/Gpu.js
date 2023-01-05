@@ -2,10 +2,14 @@ import { useState, useEffect } from 'react'
 
 export default function Gpu(props) {
   const [gpus, setGpus] = useState([])
+  const [limit, setLimit] = useState(10)
+  const [offset, setOffset] = useState(0)
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getGpus = async () => {
     try {
-      const response = await fetch(`${props.url}/gpu?limit=10&offset=0`, {
+      const response = await fetch(`${props.url}/gpu?limit=${limit}&offset=${offset}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -21,8 +25,20 @@ export default function Gpu(props) {
   }
 
   useEffect(() => {
-    getGpus()
-  }, [])
+    setLoading(true)
+    getGpus({limit, offset})
+  }, [limit, offset])
+
+  const handleNext = async () => {
+    setOffset((prev) => (prev += limit));
+  };
+  const handlePrevious = async () => {
+    if (offset === 0){
+      return
+    } else {
+    setOffset((prev) => (prev -= limit));
+    }
+  };
 
   return (
     <>
@@ -44,6 +60,8 @@ export default function Gpu(props) {
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
+      <button onClick={handlePrevious}>Previous</button>
+      <button onClick={handleNext}>Next</button>
     </>
   )
 }

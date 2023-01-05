@@ -19,8 +19,9 @@ import CaseFans from '../CaseFans/CaseFans';
 import SideBar from '../../components/SideBar/SideBar';
 import SingleStorage from '../Storage/SingleStorage';
 import Cart from '../Cart/Cart';
-import Mouse from '../Mouse';
+import Mouse from '../Mouse/Mouse';
 import SingleRam from '../Ram/SingleRam';
+import Category from '../Category/Category'
 
 export default function App() {
   const [state, setState] = useState(null)
@@ -32,41 +33,6 @@ export default function App() {
   const host = `${headers.host}`
   const apiKey = `${headers.apiKey}`
 
-  
-  const fetchState = async () => {
-    try {
-      const response = await fetch(`api/test`)
-      const data = await response.json()
-      setState(data)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  useEffect(() => {
-    fetchState()
-  }, [])
-
-  // const getState = async () => {
-  //   try {
-  //     const response = await fetch(`${url}/${product}?limit=10&offset=0`, {
-  //       method: "GET",
-  //       headers: {
-  //           'Content-Type': 'application/json',
-  //           "X-RapidAPI-Key": `${apiKey}`,
-  //           "X-RapidAPI-Host" : `${host}`
-  //       }
-  //     })
-  //     const data = await response.json()
-  //     setState(data)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getState()
-  // }, [])
 
   // const handleNext = async () => {
   //   setOffset((prev) => (prev += limit));
@@ -104,6 +70,7 @@ export default function App() {
               <Route path="/cpu_fans" element={<CpuFans url={url} host={host} apiKey={apiKey}/>}/>
               <Route path="/case_fans" element={<CaseFans url={url} host={host} apiKey={apiKey}/>}/>
               <Route path="/mouse" element={<Mouse url={url} host={host} apiKey={apiKey}/>}/>
+              <Route path="/category/:product" element={<Category /> }/>
             </Routes>
             <Footer />
           </>

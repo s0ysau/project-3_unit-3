@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
 export default function SideBar (){
+
+
   return(
-    <nav>
+    <nav className="side-bar">
       <h1>Side Bar</h1>
       <Link to="/power_supply">Power Supply</Link><br/>
       <Link to="/ram">Ram</Link><br/>

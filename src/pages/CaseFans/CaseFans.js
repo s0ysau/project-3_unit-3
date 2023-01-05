@@ -3,7 +3,10 @@ import PrevNextBtn from '../../components/PrevNextBtn'
 
 export default function CaseFans (props) {
   const [caseFans, setCaseFans] = useState([])
-
+  const [limit, setLimit] = useState(10)
+  const [offset, setOffset] = useState(0)
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getCaseFans = async (limit, offset) => {
     try {
@@ -23,8 +26,20 @@ export default function CaseFans (props) {
   }
 
   useEffect(() => {
-    getCaseFans()
-  }, [])
+    setLoading(true)
+    getCaseFans({limit, offset})
+  }, [limit, offset])
+
+  const handleNext = async () => {
+    setOffset((prev) => (prev += limit));
+  };
+  const handlePrevious = async () => {
+    if (offset === 0){
+      return
+    } else {
+    setOffset((prev) => (prev -= limit));
+    }
+  };
 
   return(
     <>
@@ -46,7 +61,8 @@ export default function CaseFans (props) {
           </ul>
         ) : <h1>Nothing to Show</h1>
       } 
-      <PrevNextBtn getProduct={getCaseFans}/>
+      <button onClick={handlePrevious}>Previous</button>
+      <button onClick={handleNext}>Next</button>
     </>
   )
 }
