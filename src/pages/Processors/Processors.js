@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 export default function Processor (props) {
   const [processors, setProcessors] = useState([])
@@ -42,20 +43,16 @@ export default function Processor (props) {
 
 
   return(
-    <>
+    <div className='product-body'>
       <h1>Processors</h1>
       {
         processors ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               processors.map((processor) => {
                 return(
-                <li key={processor.id}>
-                  <img src={processor.img} alt={processor.title} />
-                  <h3>{processor.brand} - {processor.model} {processor.speed}</h3>
-                  <p>${processor.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                  <ProductDisplay props={processor} />
+                )
               })
             }
           </ul>
@@ -63,6 +60,6 @@ export default function Processor (props) {
       }
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }

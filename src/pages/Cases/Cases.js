@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 export default function Case (props) {
   const [cases, setCases] = useState([])
@@ -41,20 +42,16 @@ export default function Case (props) {
   };
 
   return(
-    <>
+    <div className='product-body'>
       <h1>Cases</h1>
       {
         cases ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               cases.map((item) => {
                 return(
-                <li key={item.id}>
-                  <img src={item.img} alt={item.title} />
-                  <h3>{item.brand} - {item.model}, {item.cabinetType}</h3>
-                  <p>${item.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                  <ProductDisplay props={item} />
+                )
               })
             }
           </ul>
@@ -62,6 +59,6 @@ export default function Case (props) {
       }
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }

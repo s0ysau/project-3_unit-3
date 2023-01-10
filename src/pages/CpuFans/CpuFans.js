@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 export default function CpuFans (props) {
   const [cpuFans, setCpuFans] = useState([])
@@ -10,7 +10,7 @@ export default function CpuFans (props) {
 
   const getCpuFans = async () => {
     try {
-      const response = await fetch(`${props.url}/cpu_fan?${limit}&offset=${offset}`, {
+      const response = await fetch(`${props.url}/cpu_fan?limit=${limit}&offset=${offset}`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -43,20 +43,16 @@ export default function CpuFans (props) {
   
 
   return(
-    <>
+    <div className='product-body'>
       <h1>CPU Fans</h1>
       {
         cpuFans ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               cpuFans.map((cpuFan) => {
                 return(
-                <li key={cpuFan.id}>
-                  <img src={cpuFan.img} alt={cpuFan.title} />
-                  <h3>{cpuFan.brand} - {cpuFan.model} ({cpuFan.rpm})</h3>
-                  <p>${cpuFan.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                  <ProductDisplay props={cpuFan} />
+                )
               })
             }
           </ul>
@@ -64,6 +60,6 @@ export default function CpuFans (props) {
       }
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }

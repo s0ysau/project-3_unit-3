@@ -5,7 +5,6 @@ export default function SideBar (){
 
   return(
     <nav className="side-bar">
-      <h1>Side Bar</h1>
       <Link to="/power_supply">Power Supply</Link><br/>
       <Link to="/ram">Ram</Link><br/>
       <Link to="/storage">Storage</Link><br/>

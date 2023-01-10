@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import PrevNextBtn from '../../components/PrevNextBtn'
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
+
 
 export default function CaseFans (props) {
   const [caseFans, setCaseFans] = useState([])
@@ -8,7 +9,7 @@ export default function CaseFans (props) {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const getCaseFans = async (limit, offset) => {
+  const getCaseFans = async () => {
     try {
       const response = await fetch(`${props.url}/case_fan?limit=${limit}&offset=${offset}`, {
         method: "GET",
@@ -42,20 +43,16 @@ export default function CaseFans (props) {
   };
 
   return(
-    <>
+    <div className='product-body'>
       <h1>Case Fans</h1>
       {
         caseFans ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               caseFans.map((caseFan) => {
                 return(
-                <li key={caseFan.id}>
-                  <img src={caseFan.img} alt={caseFan.title} />
-                  <h3>{caseFan.brand} - {caseFan.model} ({caseFan.rpm})</h3>
-                  <p>${caseFan.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                <ProductDisplay props={caseFan} />
+                )
               })
             }
           </ul>
@@ -63,6 +60,6 @@ export default function CaseFans (props) {
       } 
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }

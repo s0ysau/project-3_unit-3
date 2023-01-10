@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, Link } from "react-router-dom"
-import SingleRam from './SingleRam'
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 export default function Ram (props) {
   const [rams, setRams] = useState([])
@@ -43,22 +42,16 @@ export default function Ram (props) {
   };
 
   return(
-    <>
+    <div className='product-body'>
       <h1>Ram</h1>
       {
         rams ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               rams.map((ram) => {
                 return(
-                <li key={ram.id}>
-                    <Link to={`/ram/${ram.id}`} ram={ram}>
-                      <img src={ram.img} alt={ram.title} />
-                      <h3>{ram.brand} - {ram.size} ({ram.quantity})</h3>
-                    </Link>
-                  <p>${ram.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                  <ProductDisplay props={ram} />
+                )
               })
             }
           </ul>
@@ -66,6 +59,15 @@ export default function Ram (props) {
       }      
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }
+
+/*
+  <Link to={`/ram/${ram.id}`} ram={ram}>
+    <img src={ram.img} alt={ram.title} />
+    <h3>{ram.brand} - {ram.size} ({ram.quantity})</h3>
+  </Link>
+  <p>${ram.price}</p>
+  <button>Add to Cart</button>
+*/

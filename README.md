@@ -15,7 +15,7 @@ https://computer-components-api.p.rapidapi.com/{product}?limit={limit}&offset={o
 <h4>Parameters</h4>
 {product} = product type like ram, storage, etc.</br>
 {limit} = number of products displayed on the page at one given.</br>
-{offset} = </br>
+{offset} = the number of results to be skipped</br>
 </br>
 <h4>API Object Structure</h4>
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 export default function Motherboard(props) {
   const [motherboards, setMotherboards] = useState([])
@@ -41,20 +42,16 @@ export default function Motherboard(props) {
   };
 
   return (
-    <>
+    <div className='product-body'>
       <h1>Motherboards</h1>
       {
         motherboards ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               motherboards.map((motherboard) => {
                 return (
-                  <li key={motherboard.id}>
-                    <img src={motherboard.img} alt={motherboard.title} />
-                    <h3>{motherboard.brand} - {motherboard.model} ({motherboard.formFactor})</h3>
-                    <p>${motherboard.price}</p>
-                    <button>Add to Cart</button>
-                  </li>)
+                  <ProductDisplay props={motherboard} />
+                )
               })
             }
           </ul>
@@ -62,6 +59,17 @@ export default function Motherboard(props) {
       }
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }
+
+
+/*
+  <li key={motherboard.id}>
+    <img src={motherboard.img} alt={motherboard.title} />
+    <h3>{motherboard.brand} - {motherboard.model} ({motherboard.formFactor})</h3>
+    <p>${motherboard.price}</p>
+    <button>Add to Cart</button>
+  </li>
+
+*/

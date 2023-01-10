@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from "react-router-dom";
-import SingleStorage from './SingleStorage';
-import ShopBtn from '../../components/ShopBtn/ShopBtn';
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 
 export default function Storage (props) {
@@ -51,23 +49,15 @@ export default function Storage (props) {
   // }
 
   return(
-    <>
+    <div className='product-body'>
       <h1>Storage</h1>
       {
         storage ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               storage.map((item) => {
                 return(
-                <li key={item.id}>
-                  <Link to={`/storage/${item.id}`} >
-                    <img src={item.img} alt={item.title} />
-                    <h3>{item.brand} - {item.rpm} {item.type}</h3>
-                  </Link>
-                  <p>${item.price}</p>
-                  <ShopBtn props={item}/>
-                  <a href={item.link}>Buy on Amazon.com</a>
-                </li>
+                  <ProductDisplay props={item} />
                 )
               })
             }
@@ -76,6 +66,6 @@ export default function Storage (props) {
       }
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }

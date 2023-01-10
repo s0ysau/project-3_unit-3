@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import PrevNextBtn from '../../components/PrevNextBtn'
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 
 export default function Mouse (props) {
@@ -40,22 +40,19 @@ export default function Mouse (props) {
     } else {
     setOffset((prev) => (prev -= limit));
     }
+  }
 
   return(
-    <>
+    <div className='product-body'>
       <h1>Mouses</h1>
       {
         mouses ? (
-          <ul>
+          <ul  className='product-listing-container'>
             {
               mouses.map((mouse) => {
                 return(
-                <li key={mouse.id}>
-                  <img src={mouse.img} alt={mouse.title} />
-                  <h3>{mouse.brand} - {mouse.model} {mouse.wireless}</h3>
-                  <p>${mouse.price}</p>
-                  <button>Add to Cart</button>
-                </li>)
+                  <ProductDisplay props={mouse} />
+                )
               })
             }
           </ul>
@@ -63,7 +60,7 @@ export default function Mouse (props) {
       }
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }
-}
+

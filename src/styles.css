@@ -1,6 +1,7 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
+  --color-one: rgb(41, 77, 127);
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
@@ -21,10 +22,11 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background-color: var(--white);
   padding: 2vmin;
   height: 100vh;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -63,6 +65,34 @@ code {
 
 .scroll-y {
   overflow-y: scroll;
+}
+
+
+.nav-bar{
+  text-align: end;
+  text-decoration: none;
+  color: none
+}
+
+.title {
+  text-align: start; 
+}
+
+.main-body{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.side-bar{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  text-decoration: none;
+
+}
+
+.side-bar > Link:visited{
+  text-decoration: none;
 }
 
 .section-heading {
@@ -117,6 +147,8 @@ input:focus {
   border-color: var(--orange);
 }
 
+/* BUTTON */
+
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
@@ -151,3 +183,26 @@ button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
+
+/* BUTTON */
+  /* PRODUCTS */
+
+.product-body {
+  grid-column: 2/3;
+  grid-row:1/2;
+}
+
+.product-listing-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  padding-left: 0;
+  list-style-type:none;
+}
+
+.product-listing-individual > h3,
+.product-listing-individual > p {
+  margin: 0 0;
+}
+
+/* PRODUCTS */

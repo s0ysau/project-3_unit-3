@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ProductDisplay from '../ProductsDisplay/ProductsDisplay'
 
 export default function Gpu(props) {
   const [gpus, setGpus] = useState([])
@@ -41,20 +42,16 @@ export default function Gpu(props) {
   };
 
   return (
-    <>
+    <div className='product-body'>
       <h1>GPU</h1>
       {
         gpus ? (
-          <ul>
+          <ul className='product-listing-container'>
             {
               gpus.map((gpu) => {
                 return (
-                  <li key={gpu.id}>
-                    <img src={gpu.img} alt={gpu.title} />
-                    <h3>{gpu.brand} - {gpu.model}</h3>
-                    <p>${gpu.price}</p>
-                    <button>Add to Cart</button>
-                  </li>)
+                  <ProductDisplay props={gpu} />
+                )
               })
             }
           </ul>
@@ -62,6 +59,6 @@ export default function Gpu(props) {
       }
       <button onClick={handlePrevious}>Previous</button>
       <button onClick={handleNext}>Next</button>
-    </>
+    </div>
   )
 }
