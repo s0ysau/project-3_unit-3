@@ -1,7 +1,9 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  --tan-1: #FBF9F6;
+  --color-one: rgb(41, 77, 127);
+  --title: rgb(0, 40, 95);
+  --buttons: #2b87c3; 
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #D3C1AE;
@@ -21,10 +23,11 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  padding: 2vmin;
+  background-color: var(--white);
   height: 100vh;
+
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -63,6 +66,112 @@ code {
 
 .scroll-y {
   overflow-y: scroll;
+}
+
+
+.main-section{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+/* BM */
+
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #d1d1d1;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: white;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 36px;
+  top: 12px;
+}
+
+.bm-burger-bars {
+  background: var(--white);
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu {
+  background: var(--color-one);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-item-list {
+  color: #b8b7ad;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* SIDEBAR */
+
+.side-bar{
+  text-decoration: none;
+  font-size: 15px;
+}
+
+/* NAVBAR & HEADER */
+
+.nav-bar{
+  display: flex;
+  justify-content: space-evenly;
+  text-align: end;
+  text-decoration: none;
+  color: none;
+  padding: 0 0 5px 0;
+  background-color: var(--color-one);
+  color: var(--white);
+}
+
+.title {
+  text-align: start; 
+  margin: 0 0;
+  padding: 10px 5px;
+  background-color: var(--title);
+  color: var(--white)
+}
+
+.side-bar > Link:visited
+.nav-bar > Link:visited{
+  text-decoration: none;
+  color: var(--white);
+}
+
+/* FOOTER */
+.footer {
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 5px 0;
+  background-color: var(--color-one);
+  color: white;
+  text-align: center;
 }
 
 .section-heading {
@@ -117,11 +226,13 @@ input:focus {
   border-color: var(--orange);
 }
 
+/* BUTTON */
+
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--buttons);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
@@ -144,10 +255,57 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: var(--buttons);
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
+
+.amazon {
+  align-items: center;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--orange);
+  border: .1vmin solid var(--tan-2);
+}
+
+.button-btns {
+  display: flex;  
+  justify-content: center;
+}
+
+.prev, 
+.next {
+  text-align: center;
+}
+
+a{
+  color:white;
+  text-decoration: none;
+}
+
+/* BUTTON */
+/* PRODUCTS */
+
+/* .product-body {
+} */
+
+.product-listing-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 15px;
+  padding: 0 5px 0 5px;
+  list-style-type:none;
+}
+
+.product-listing-individual > h3,
+.product-listing-individual > p {
+  margin: 0 0;
+  padding: 0 5px 0 0;
+}
+
+/* PRODUCTS */
