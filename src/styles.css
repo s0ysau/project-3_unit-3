@@ -187,6 +187,25 @@ code {
   font-size: 2vmin;
 }
 
+/* Sign-up and Login */
+
+.welcome-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.sign-up-section
+.login-section {
+  flex-wrap: wrap;
+}
+
+.signup-title,
+.login-title {
+  text-align: center;
+}
+
+
 .form-container {
   padding: 3vmin;
   background-color: var(--tan-1);
@@ -309,3 +328,4 @@ a{
 }
 
 /* PRODUCTS */
+
