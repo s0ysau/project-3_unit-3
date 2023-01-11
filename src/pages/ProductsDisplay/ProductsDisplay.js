@@ -11,7 +11,7 @@ export default function ProductDisplay({props}) {
       <h3>{props.brand} - {props.model}</h3>
       <p>${props.price}</p>
       {/* <button>Add to Cart</button> */}
-      <button onClick={handleAmazon}>Buy on Amazon</button>
+      <button onClick={handleAmazon} className="amazon">Buy on Amazon</button>
     </li> 
   )
 }

@@ -11,7 +11,7 @@ export default function PowerSupply (props) {
 
   useEffect(() => {
     setLoading(true)
-    sendProductRequire({category: 'power_supply'})
+    sendProductRequire({category: 'power_supply', limit, offset})
   }, [limit, offset])
 
   const handleNext = async () => {

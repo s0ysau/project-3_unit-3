@@ -6,7 +6,6 @@ export default function CaseFans (props) {
   const [caseFans, setCaseFans] = useState([])
   const [limit, setLimit] = useState(10)
   const [offset, setOffset] = useState(0)
-  const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const getCaseFans = async () => {
@@ -58,8 +57,10 @@ export default function CaseFans (props) {
           </ul>
         ) : <h1>Nothing to Show</h1>
       } 
-      <button onClick={handlePrevious}>Previous</button>
-      <button onClick={handleNext}>Next</button>
+      <div className='button-btns'>
+        <button onClick={handlePrevious} className="prev">Previous</button>
+        <button onClick={handleNext} className="next">Next</button>
+      </div>
     </div>
   )
 }

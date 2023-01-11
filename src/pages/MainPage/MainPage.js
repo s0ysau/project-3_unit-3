@@ -22,7 +22,7 @@ export default function MainPage () {
   const apiKey = `${headers.apiKey}`
 
   return (
-    <div className="main-page">
+    <>
       <SideBar/>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -40,6 +40,6 @@ export default function MainPage () {
         <Route path="/mouse" element={<Mouse url={url} host={host} apiKey={apiKey}/>}/>
       </Routes>
       <Footer/>
-    </div>
+    </>
   )
 }

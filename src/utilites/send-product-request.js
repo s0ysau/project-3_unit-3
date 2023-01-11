@@ -2,17 +2,17 @@
 export const headers = {
   base_url: "https://computer-components-api.p.rapidapi.com",
   host: "computer-components-api.p.rapidapi.com",
-  apiKey: "4df6df70f4msh86e57e37753536ep17d511jsn5179f481eee1"
+  apiKey: "1de4db4636msh02af1e6b0ac0a6bp19b9f7jsn4e95e4442317"
 }
 
 const base_url = "https://computer-components-api.p.rapidapi.com"
 const host = "computer-components-api.p.rapidapi.com"
-const apiKey = "4df6df70f4msh86e57e37753536ep17d511jsn5179f481eee1"
+const apiKey = "1de4db4636msh02af1e6b0ac0a6bp19b9f7jsn4e95e4442317"
 
 
 export async function sendProductRequire (data) {
   const {
-    category, limit = 10, offset = 0, payload = null, method = 'GET'
+    category, limit, offset, payload = null, method = 'GET'
   } = data
   const options = { method }
   if (payload){
