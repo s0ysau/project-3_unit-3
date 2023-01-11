@@ -1,13 +1,13 @@
-import { logOut } from "../../utilites/users-service"
+import { logOut } from '../../utilites/users-service'
 
-export default function Logout({user, setUser}) {
-  function handleLogOut(){
+export default function Logout ({ user, setUser }) {
+  function handleLogOut () {
     logOut()
     setUser(null)
   }
-  return(
+  return (
     <>
-      <a href="/" onClick={handleLogOut}>Log Out</a>
+      <a href='/' onClick={handleLogOut}>Log Out</a>
     </>
   )
 }

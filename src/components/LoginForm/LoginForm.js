@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import * as userService from '../../utilites/users-service'
 
 export default function LoginForm ({ setUser }) {
@@ -42,10 +42,3 @@ export default function LoginForm ({ setUser }) {
     </div>
   )
 }
-
-
-
-
-
-
-

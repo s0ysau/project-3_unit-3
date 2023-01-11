@@ -5,11 +5,11 @@ import LoginForm from '../LoginForm/LoginForm'
 
 export default class SignUpForm extends Component {
   state = {
-      name: '',
-      email: '',
-      password: '',
-      confirm: '',
-      error: ''
+    name: '',
+    email: '',
+    password: '',
+    confirm: '',
+    error: ''
   }
 
   handleSubmit = async (evt) => {
@@ -26,11 +26,11 @@ export default class SignUpForm extends Component {
   }
 
   handleChange = (evt) => {
-      this.setState({
-          [evt.target.name]: evt.target.value
-      })
+    this.setState({
+      [evt.target.name]: evt.target.value
+    })
   }
-  
+
   render () {
     const disable = this.state.password !== this.state.confirm
     return (

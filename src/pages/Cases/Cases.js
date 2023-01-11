@@ -5,17 +5,17 @@ export default function Case (props) {
   const [cases, setCases] = useState([])
   const [limit, setLimit] = useState(10)
   const [offset, setOffset] = useState(0)
-  const [errorMessage, setErrorMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const getCases = async () => {
     try {
       const response = await fetch(`${props.url}/case?limit=${limit}&offset=${offset}`, {
-        method: "GET",
+        method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
-            "X-RapidAPI-Key": `${props.apiKey}`,
-            "X-RapidAPI-Host" : `${props.host}`
+          'Content-Type': 'application/json',
+          'X-RapidAPI-Key': `${props.apiKey}`,
+          'X-RapidAPI-Host': `${props.host}`
         }
       })
       const data = await response.json()
@@ -27,39 +27,41 @@ export default function Case (props) {
 
   useEffect(() => {
     setLoading(true)
-    getCases({limit, offset})
+    getCases({ limit, offset })
   }, [limit, offset])
 
   const handleNext = async () => {
-    setOffset((prev) => (prev += limit));
-  };
+    setOffset((prev) => (prev += limit))
+  }
   const handlePrevious = async () => {
-    if (offset === 0){
-      return
-    } else {
-    setOffset((prev) => (prev -= limit));
-    }
-  };
+    if (offset === 0) {
 
-  return(
+    } else {
+      setOffset((prev) => (prev -= limit))
+    }
+  }
+
+  return (
     <div className='product-body'>
       <h1>Cases</h1>
       {
-        cases ? (
-          <ul className='product-listing-container'>
-            {
+        cases
+          ? (
+            <ul className='product-listing-container'>
+              {
               cases.map((item) => {
-                return(
+                return (
                   <ProductDisplay props={item} />
                 )
               })
             }
-          </ul>
-        ) : <h1>Nothing to Show</h1>
+            </ul>
+            )
+          : <h1>Nothing to Show</h1>
       }
       <div className='button-btns'>
-        <button onClick={handlePrevious} className="prev">Previous</button>
-        <button onClick={handleNext} className="next">Next</button>
+        <button onClick={handlePrevious} className='prev'>Previous</button>
+        <button onClick={handleNext} className='next'>Next</button>
       </div>
     </div>
   )
