@@ -110,6 +110,7 @@ I wanted to construct the Main Page into four main components: NavBar, SideBar, 
 ```
 
 "react-burger-menu" was used to make the burger menu. 
+https://www.npmjs.com/package/react-burger-menu
 
 <h2>Icebox / Next Things</h2>
 <ul>
