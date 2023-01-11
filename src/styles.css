@@ -25,6 +25,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--white);
   height: 100vh;
+
 }
 
 
@@ -297,13 +298,14 @@ a{
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   column-gap: 10px;
   row-gap: 15px;
-  padding-left: 0;
+  padding: 0 5px 0 5px;
   list-style-type:none;
 }
 
 .product-listing-individual > h3,
 .product-listing-individual > p {
   margin: 0 0;
+  padding: 0 5px 0 0;
 }
 
 /* PRODUCTS */

@@ -64,8 +64,10 @@ export default function Storage (props) {
           </ul>
         ) : <h1>Nothing to Show</h1>
       }
-      <button onClick={handlePrevious}>Previous</button>
-      <button onClick={handleNext}>Next</button>
+      <div className='button-btns'>
+        <button onClick={handlePrevious} className="prev">Previous</button>
+        <button onClick={handleNext} className="next">Next</button>
+      </div>
     </div>
   )
 }
