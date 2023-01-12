@@ -1,6 +1,6 @@
 <h1>PROJECT 3</h1>
 
-<h1>Com Parts</h1>
+<h1>MicroParts</h1>
 For this project, I wanted to make a e-commerce site using the MERN stack that sells computer parts for custom builds and general use. 
 
 I was able to use a third-party REST API called Computer Components API that provide multiple endpoints to fetch computer parts, like ram, GPU, CPU processors, etc. 
