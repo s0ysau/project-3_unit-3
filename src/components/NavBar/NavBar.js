@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-import Logout from "../LogOut/LogOut"
+import Logout from "../Logout/Logout"
 
 export default function NavBar ({user, setUser}) {
   return (
