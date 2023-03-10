@@ -1,6 +1,6 @@
 <h1>PROJECT 3</h1>
 
-<h1>Com Parts</h1>
+<h1>MicroParts</h1>
 For this project, I wanted to make a e-commerce site using the MERN stack that sells computer parts for custom builds and general use. 
 
 I was able to use a third-party REST API called Computer Components API that provide multiple endpoints to fetch computer parts, like ram, GPU, CPU processors, etc. 
@@ -20,7 +20,7 @@ https://computer-components-api.p.rapidapi.com/{product}?limit={limit}&offset={o
 <h4>API Object Structure</h4>
 
 ![API_Object](images/API_object_structure.png)
-Above is how one project for a power supply is structure. There are common keys such as title, img and price and keys unqiue to the product: For example, power and efficiency are unique to the power supply.
+Above is how one project for a power supply is structure. There are common keys such as title, img and price while other keys are unique to the product: For example, power and efficiency are only for the power supply.
 
 <h2>Organization</h2>
 With the concept of separation of concern in mind, I organized, first between Frontend and Backend and then between different components. 
@@ -119,4 +119,6 @@ https://www.npmjs.com/package/react-burger-menu
   <li>Cart / Buying Items functionality</li>
   <li>Create Component for showing individual product</li>
   <li>Continue to compartmentalize code into components</li>
+  <li>Add features to the Auth functionality like Nicknames and Forgot Password</li>
+  <li>Search Bar</li>
 </ul>

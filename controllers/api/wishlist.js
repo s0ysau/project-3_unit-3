@@ -1,21 +1,21 @@
 const Wishlist = require('../../models/wishlist')
 
-const dataController ={
+const dataController = {
   // index
-  index(req, res, next){
-    Wishlist.find({}, (err, foundWishlistItems)=>{
+  index (req, res, next) {
+    Wishlist.find({}, (err, foundWishlistItems) => {
       if (err) {
         res.status(400).send({
-        msg: err.message 
-      })
+          msg: err.message
+        })
       } else {
         res.locals.data.wishlistItems = foundWishlistItems
         next()
       }
     })
   },
-  // delete 
-  destroy (req, res, next){
+  // delete
+  destroy (req, res, next) {
     Wishlist.findByIdAndDelete(req.params.id, (err, deleteWishlistItem) => {
       if (err) {
         res.status(400).send({
@@ -26,9 +26,9 @@ const dataController ={
       }
     })
   },
-  // update 
-  update(req, res, next){
-    Wishlist.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateWishlistItem) => {
+  // update
+  update (req, res, next) {
+    Wishlist.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updateWishlistItem) => {
       if (err) {
         res.status(400).send({
           msg: err.message
@@ -38,8 +38,8 @@ const dataController ={
       }
     })
   },
-  // create 
-  create(req, res, next){
+  // create
+  create (req, res, next) {
     Wishlist.create(req.body, (err, createwishlistItem) => {
       if (err) {
         res.status(400).send({
@@ -49,8 +49,8 @@ const dataController ={
         res.locals.data.wishlistItem = createwishlistItem
       }
     })
-  }, 
-  // show 
+  },
+  // show
   show (req, res, next) {
     Wishlist.findById(req.params.id, (err, foundWishlistItem) => {
       if (err) {
@@ -75,5 +75,4 @@ const apiController = {
   }
 }
 
-
-module.exports = {dataController, apiController}
+module.exports = { dataController, apiController }

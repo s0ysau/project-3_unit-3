@@ -1,4 +1,4 @@
-// const Order 
+// const Order
 /*
 module.exports = {
   cart,
@@ -8,7 +8,7 @@ module.exports = {
   history
 };
 
-// function for a cart that is an unpaid order  
+// function for a cart that is an unpaid order
 const cart = async (req, res) => {
   try {
     const cart = await Order.getCart(req.user._id);
@@ -18,7 +18,7 @@ const cart = async (req, res) => {
   }
 }
 
-// function to add item to cart 
+// function to add item to cart
 const addToCart = async (req, res) => {
   try {
     const cart = await Order.getCart(req.user._id);
@@ -29,7 +29,7 @@ const addToCart = async (req, res) => {
   }
 }
 
-// function to update an item's qty in the cart 
+// function to update an item's qty in the cart
 const setItemQtyInCart = async (req, res) => {
   try {
     const cart = await Order.getCart(req.user._id)
@@ -52,7 +52,7 @@ const checkout = async (req, res) => {
   }
 }
 
-// return the logged in user's paid order history 
+// return the logged in user's paid order history
 const history = async (req, res) => {
   try {
     const orders = await Order

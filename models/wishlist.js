@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require('mongoose')
 
 const wishlistSchema = new Schema({
   processor: String,
@@ -9,12 +9,12 @@ const wishlistSchema = new Schema({
   powerSupply: String,
   case: String,
   caseFans: String,
-  cpuFan: String,
-}, 
+  cpuFan: String
+},
 {
   timestamps: true
 })
 
 const Wishlist = model('Wishlist', wishlistSchema)
 
-module.exports = Wishlist 
+module.exports = Wishlist

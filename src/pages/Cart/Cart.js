@@ -4,9 +4,8 @@ export default function Cart () {
   )
 }
 
-
 // similiar to OrderDetail
-// import a lineitem 
+// import a lineitem
 /*
 export default function Cart({ order, handleChangeQty, handleCheckout }) {
   if (!order) return null;
