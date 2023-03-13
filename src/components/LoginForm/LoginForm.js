@@ -42,7 +42,7 @@ export default function LoginForm ({ setUser }) {
       <section>
         <h3>For Demo Run, Use the following credentials</h3>
         <p>Email: test@mail.com</p>
-        <p>Password: test</p>
+        <p>Password: 1234</p>
         <h3>NOTE: As of March 2023, there is a hard limit of 100 request/day on API request.</h3>
       </section>
     </div>
